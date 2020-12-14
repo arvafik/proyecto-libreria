@@ -128,28 +128,41 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArticuloController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Articulo.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Articulo.Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Articulo.cs">
-      <DependentUpon>Articulo.tt</DependentUpon>
+      <DependentUpon>Libreria.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Articulo.Designer.cs">
+    <Compile Include="Models\Cliente.cs">
+      <DependentUpon>Libreria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Libreria.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Articulo.edmx</DependentUpon>
+      <DependentUpon>Libreria.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Articulo1.cs">
+    <Compile Include="Models\Libreria.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Articulo.tt</DependentUpon>
+      <DependentUpon>Libreria.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Libreria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Libreria.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sucursale.cs">
+      <DependentUpon>Libreria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModels\ArticuloViewModel.cs" />
+    <Compile Include="Models\ViewModels\BaseViewModel.cs" />
+    <Compile Include="Models\ViewModels\ClienteViewModel.cs" />
+    <Compile Include="Models\ViewModels\ListArticuloViewModel.cs" />
+    <Compile Include="Models\ViewModels\ListClienteViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2682,15 +2695,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Articulo.Context.tt">
+    <Content Include="Models\Libreria.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Articulo.Context.cs</LastGenOutput>
-      <DependentUpon>Articulo.edmx</DependentUpon>
+      <DependentUpon>Libreria.edmx</DependentUpon>
+      <LastGenOutput>Libreria.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Articulo.tt">
+    <Content Include="Models\Libreria.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Articulo.edmx</DependentUpon>
-      <LastGenOutput>Articulo1.cs</LastGenOutput>
+      <DependentUpon>Libreria.edmx</DependentUpon>
+      <LastGenOutput>Libreria.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -3181,12 +3194,12 @@
     <Content Include="Content\vendor\nucleo\fonts\nucleo-icons.woff" />
     <Content Include="Content\vendor\nucleo\fonts\nucleo-icons.woff2" />
     <Content Include="Content\vendor\prismjs\components.json" />
-    <EntityDeploy Include="Models\Articulo.edmx">
+    <EntityDeploy Include="Models\Libreria.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Articulo.Designer.cs</LastGenOutput>
+      <LastGenOutput>Libreria.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Articulo.edmx.diagram">
-      <DependentUpon>Articulo.edmx</DependentUpon>
+    <Content Include="Models\Libreria.edmx.diagram">
+      <DependentUpon>Libreria.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -3213,6 +3226,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Articulo\Index.cshtml" />
+    <Content Include="Views\Articulo\Nuevo.cshtml" />
+    <Content Include="Views\Articulo\Editar.cshtml" />
+    <Content Include="Views\Cliente\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,55 @@
+﻿@model proyectolibreria.Models.ViewModels.ArticuloViewModel
+
+@{
+    ViewBag.Title = "Nuevo Articulo";
+}
+
+@using (Html.BeginForm("Nuevo", "Articulo", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <!-- Card -->
+                <div class="card-header border-0">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-md-12">
+                    @Html.LabelFor(d => d.Nombre)
+                    @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "red" })
+
+                    @Html.LabelFor(d => d.Descripcion)
+                    @Html.TextBoxFor(d => d.Descripcion, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.Descripcion, null, new { @class = "red" })
+
+
+                    @Html.LabelFor(d => d.Categoria)
+                    @Html.TextBoxFor(d => d.Categoria, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.Categoria, null, new { @class = "red" })
+
+                    @Html.LabelFor(d => d.Autor)
+                    @Html.TextBoxFor(d => d.Autor, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.Autor, null, new { @class = "red" })
+
+                    @Html.LabelFor(d => d.TotalInventario)
+                    @Html.TextBoxFor(d => d.TotalInventario, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.TotalInventario, null, new { @class = "red" })
+
+
+                    @Html.LabelFor(d => d.Editorial)
+                    @Html.TextBoxFor(d => d.Editorial, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.Editorial, null, new { @class = "red" })
+
+
+                    @Html.LabelFor(d => d.Precio)
+                    @Html.TextBoxFor(d => d.Precio, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.Precio, null, new { @class = "red" })
+
+
+                    <input class="btn btn-primary" style="margin-top:1em;" value="Guardar" type="submit" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+    }
