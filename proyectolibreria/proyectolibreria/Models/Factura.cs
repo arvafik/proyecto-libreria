@@ -12,11 +12,9 @@ namespace proyectolibreria.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Cliente
+    public partial class Factura
     {
         public int ID { get; set; }
-        public string Nombre { get; set; }
-        public string Direccion { get; set; }
-        public string Telefono { get; set; }
+        public int IDCliente { get; set; }
     }
 }

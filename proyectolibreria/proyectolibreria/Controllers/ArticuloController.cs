@@ -16,7 +16,7 @@ namespace proyectolibreria.Controllers
             //Read
             List<ListArticuloViewModel> lst;
 
-            using (LibreriaDBEntities db= new LibreriaDBEntities())
+            using (EurekaDBEntities db = new EurekaDBEntities())
             {
                 lst = (from x in db.Articulos
                        select new ListArticuloViewModel
@@ -46,7 +46,7 @@ namespace proyectolibreria.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    using (LibreriaDBEntities db= new LibreriaDBEntities())
+                    using (EurekaDBEntities db = new EurekaDBEntities())
                     {
                         var oArticulo = new Articulo();
                         oArticulo.Nombre = model.Nombre;
@@ -74,7 +74,7 @@ namespace proyectolibreria.Controllers
         public ActionResult Editar(int Id)
         {
             ArticuloViewModel model = new ArticuloViewModel();
-            using (LibreriaDBEntities db = new LibreriaDBEntities())
+            using (EurekaDBEntities db = new EurekaDBEntities())
             {
                 var xArticulo = db.Articulos.Find(Id);
                 model.Nombre = xArticulo.Nombre;
@@ -95,7 +95,7 @@ namespace proyectolibreria.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    using (LibreriaDBEntities db = new LibreriaDBEntities())
+                    using (EurekaDBEntities db = new EurekaDBEntities())
                     {
                         var oArticulo = db.Articulos.Find(model.Id);
                         oArticulo.Nombre = model.Nombre;
@@ -123,7 +123,7 @@ namespace proyectolibreria.Controllers
         [HttpGet]
         public ActionResult Eliminar(int Id)
         {
-            using (LibreriaDBEntities db = new LibreriaDBEntities())
+            using (EurekaDBEntities db = new EurekaDBEntities())
             {
 
                 var xArticulo = db.Articulos.Find(Id);

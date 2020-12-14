@@ -13,7 +13,7 @@ namespace proyectolibreria.Models.ViewModels
 
         public static BaseViewModel BaseContador;
 
-        LibreriaDBEntities db = new LibreriaDBEntities();
+        EurekaDBEntities db = new EurekaDBEntities();
 
         public static BaseViewModel Iniciar()
         {

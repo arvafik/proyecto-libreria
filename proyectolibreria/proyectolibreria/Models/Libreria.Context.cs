@@ -13,10 +13,10 @@ namespace proyectolibreria.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LibreriaDBEntities : DbContext
+    public partial class EurekaDBEntities : DbContext
     {
-        public LibreriaDBEntities()
-            : base("name=LibreriaDBEntities")
+        public EurekaDBEntities()
+            : base("name=EurekaDBEntities")
         {
         }
     
@@ -27,6 +27,8 @@ namespace proyectolibreria.Models
     
         public virtual DbSet<Articulo> Articulos { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
+        public virtual DbSet<FacturaArticulo> FacturaArticuloes { get; set; }
+        public virtual DbSet<Factura> Facturas { get; set; }
         public virtual DbSet<Sucursale> Sucursales { get; set; }
     }
 }

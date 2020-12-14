@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="libreriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="eurekaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Articulos">
           <Key>
             <PropertyRef Name="ID" />
@@ -27,6 +27,21 @@
           <Property Name="Direccion" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="Telefono" Type="char" MaxLength="15" Nullable="false" />
         </EntityType>
+        <EntityType Name="FacturaArticulo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDFactura" Type="int" Nullable="false" />
+          <Property Name="IDArticulo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Facturas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCliente" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Sucursales">
           <Key>
             <PropertyRef Name="ID" />
@@ -35,15 +50,18 @@
           <Property Name="Nombre" Type="varchar" MaxLength="80" />
           <Property Name="Direccion" Type="varchar" MaxLength="100" />
         </EntityType>
-        <EntityContainer Name="libreriaModelStoreContainer">
+        <EntityContainer Name="eurekaModelStoreContainer">
           <EntitySet Name="Articulos" EntityType="Self.Articulos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FacturaArticulo" EntityType="Self.FacturaArticulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Facturas" EntityType="Self.Facturas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sucursales" EntityType="Self.Sucursales" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="libreriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="eurekaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Articulo">
           <Key>
             <PropertyRef Name="ID" />
@@ -64,7 +82,22 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Direccion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Telefono" Type="Byte" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FacturaArticulo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDFactura" Type="Int32" Nullable="false" />
+          <Property Name="IDArticulo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCliente" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Sucursale">
           <Key>
@@ -74,19 +107,21 @@
           <Property Name="Nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="LibreriaDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EurekaDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Articulos" EntityType="Self.Articulo" />
           <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+          <EntitySet Name="FacturaArticuloes" EntityType="Self.FacturaArticulo" />
+          <EntitySet Name="Facturas" EntityType="Self.Factura" />
           <EntitySet Name="Sucursales" EntityType="Self.Sucursale" />
-          </EntityContainer>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="libreriaModelStoreContainer" CdmEntityContainer="LibreriaDBEntities">
+        <EntityContainerMapping StorageEntityContainer="eurekaModelStoreContainer" CdmEntityContainer="EurekaDBEntities">
           <EntitySetMapping Name="Articulos">
-            <EntityTypeMapping TypeName="libreriaModel.Articulo">
+            <EntityTypeMapping TypeName="eurekaModel.Articulo">
               <MappingFragment StoreEntitySet="Articulos">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -100,7 +135,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Clientes">
-            <EntityTypeMapping TypeName="libreriaModel.Cliente">
+            <EntityTypeMapping TypeName="eurekaModel.Cliente">
               <MappingFragment StoreEntitySet="Clientes">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -109,8 +144,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="FacturaArticuloes">
+            <EntityTypeMapping TypeName="eurekaModel.FacturaArticulo">
+              <MappingFragment StoreEntitySet="FacturaArticulo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDFactura" ColumnName="IDFactura" />
+                <ScalarProperty Name="IDArticulo" ColumnName="IDArticulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facturas">
+            <EntityTypeMapping TypeName="eurekaModel.Factura">
+              <MappingFragment StoreEntitySet="Facturas">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Sucursales">
-            <EntityTypeMapping TypeName="libreriaModel.Sucursale">
+            <EntityTypeMapping TypeName="eurekaModel.Sucursale">
               <MappingFragment StoreEntitySet="Sucursales">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />

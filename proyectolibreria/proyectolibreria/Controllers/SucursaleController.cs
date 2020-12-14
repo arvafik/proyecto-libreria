@@ -8,23 +8,22 @@ using proyectolibreria.Models.ViewModels;
 
 namespace proyectolibreria.Controllers
 {
-    public class ClienteController : Controller
+    public class SucursaleController : Controller
     {
-        // GET: Cliente
+        // GET: Sucursales editar ahoritaxd
         public ActionResult Index()
         {
             //Read
-            List<ListClienteViewModel> lst;
+            List<ListSucursaleViewModel> lst;
+
             using (EurekaDBEntities db = new EurekaDBEntities())
             {
-                lst = (from x in db.Clientes
-                       select new ListClienteViewModel
+                lst = (from x in db.Sucursales
+                       select new ListSucursaleViewModel
                        {
-                           Id = x.ID,
+                           ID = x.ID,
                            Nombre = x.Nombre,
-                           Direccion = x.Direccion,
-                           Telefono = x.Telefono
-
+                           Direccion = x.Direccion
                        }).ToList();
             }
             return View(lst);
@@ -32,10 +31,11 @@ namespace proyectolibreria.Controllers
 
         public ActionResult Nuevo()
         {
+
             return View();
         }
         [HttpPost]
-        public ActionResult Nuevo(ClienteViewModel model)
+        public ActionResult Nuevo(SucursaleViewModel model)
         {
             try
             {
@@ -43,15 +43,14 @@ namespace proyectolibreria.Controllers
                 {
                     using (EurekaDBEntities db = new EurekaDBEntities())
                     {
-                        var xCliente = new Cliente();
-                        xCliente.Nombre = model.Nombre;
-                        xCliente.Direccion = model.Direccion;
-                        xCliente.Telefono = model.Telefono;
-                        
-                        db.Clientes.Add(xCliente);
+                        var xSucursale = new Sucursale();
+                        xSucursale.Nombre = model.Nombre;
+                        xSucursale.Direccion = model.Direccion;
+
+                        db.Sucursales.Add(xSucursale);
                         db.SaveChanges();
                     }
-                    return Redirect("~/Cliente/");
+                    return Redirect("~/Sucursale/");
                 }
                 return View(model);
             }
@@ -64,20 +63,19 @@ namespace proyectolibreria.Controllers
 
         public ActionResult Editar(int Id)
         {
-            ClienteViewModel model = new ClienteViewModel();
+            SucursaleViewModel model = new SucursaleViewModel();
             using (EurekaDBEntities db = new EurekaDBEntities())
             {
-                var xCliente = db.Clientes.Find(Id);
-
-                model.Nombre = xCliente.Nombre;
-                model.Direccion = xCliente.Direccion;
-                model.Telefono = xCliente.Telefono;
-                model.Id = xCliente.ID;
+                var xSucursale = db.Sucursales.Find(Id);
+                model.Nombre = xSucursale.Nombre;
+                model.Direccion = xSucursale.Direccion;
+  
+                model.ID = xSucursale.ID;
             }
             return View(model);
         }
         [HttpPost]
-        public ActionResult Editar(ClienteViewModel model)
+        public ActionResult Editar(SucursaleViewModel model)
         {
             try
             {
@@ -85,15 +83,14 @@ namespace proyectolibreria.Controllers
                 {
                     using (EurekaDBEntities db = new EurekaDBEntities())
                     {
-                        var xCliente = db.Clientes.Find(model.Id);
-                        xCliente.Nombre = model.Nombre;
-                        xCliente.Direccion = model.Direccion;
-                        xCliente.Telefono = model.Telefono;
+                        var xSucursale = db.Sucursales.Find(model.ID);
+                        xSucursale.Nombre = model.Nombre;
+                        xSucursale.Direccion = model.Direccion;
 
-                        db.Entry(xCliente).State = System.Data.Entity.EntityState.Modified;
+                        db.Entry(xSucursale).State = System.Data.Entity.EntityState.Modified;
                         db.SaveChanges();
                     }
-                    return Redirect("~/Cliente/");
+                    return Redirect("~/Sucursale/");
                 }
                 return View(model);
             }
@@ -110,11 +107,13 @@ namespace proyectolibreria.Controllers
             using (EurekaDBEntities db = new EurekaDBEntities())
             {
 
-                var xCliente = db.Clientes.Find(Id);
-                db.Clientes.Remove(xCliente);
+                var xSucursale = db.Sucursales.Find(Id);
+                db.Sucursales.Remove(xSucursale);
                 db.SaveChanges();
             }
-            return Redirect("~/Cliente/");
+            return Redirect("~/Sucursale/");
         }
+
+
     }
 }

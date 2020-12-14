@@ -1,0 +1,31 @@
+﻿@model proyectolibreria.Models.ViewModels.SucursaleViewModel
+@{
+    ViewBag.Title = "Editar";
+}
+
+
+@using (Html.BeginForm("Editar", "Sucursale", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <!-- Card -->
+                <div class="card-header border-0">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-md-12">
+                    @Html.LabelFor(d => d.Nombre)
+                    @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "red" })
+
+                    @Html.LabelFor(d => d.Direccion)
+                    @Html.TextBoxFor(d => d.Direccion, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.Direccion, null, new { @class = "red" })
+
+                    <input class="btn btn-primary" style="margin-top:1em;" value="Guardar" type="submit" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+}

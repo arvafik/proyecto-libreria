@@ -4,11 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4705d41cb10e482d9b3314e6fb0daa92" Name="Diagram1">
-        <EntityTypeShape EntityType="libreriaModel.Articulo" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="libreriaModel.Cliente" Width="1.5" PointX="4.5" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="libreriaModel.Sucursale" Width="1.5" PointX="2.625" PointY="1.5" IsExpanded="true" />
-        </Diagram>
+      <Diagram DiagramId="c715aaba4ede4ee582bb5653ef8d824a" Name="Diagram1">
+        <EntityTypeShape EntityType="eurekaModel.Articulo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekaModel.Cliente" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekaModel.FacturaArticulo" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekaModel.Factura" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekaModel.Sucursale" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

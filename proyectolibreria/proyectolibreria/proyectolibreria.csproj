@@ -131,6 +131,7 @@
     <Compile Include="Controllers\ArticuloController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SucursaleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -138,6 +139,12 @@
       <DependentUpon>Libreria.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cliente.cs">
+      <DependentUpon>Libreria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Factura.cs">
+      <DependentUpon>Libreria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FacturaArticulo.cs">
       <DependentUpon>Libreria.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Libreria.Context.cs">
@@ -163,6 +170,8 @@
     <Compile Include="Models\ViewModels\ClienteViewModel.cs" />
     <Compile Include="Models\ViewModels\ListArticuloViewModel.cs" />
     <Compile Include="Models\ViewModels\ListClienteViewModel.cs" />
+    <Compile Include="Models\ViewModels\ListSucursaleViewModel.cs" />
+    <Compile Include="Models\ViewModels\SucursaleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -3230,6 +3239,11 @@
     <Content Include="Views\Articulo\Nuevo.cshtml" />
     <Content Include="Views\Articulo\Editar.cshtml" />
     <Content Include="Views\Cliente\Index.cshtml" />
+    <Content Include="Views\Cliente\Nuevo.cshtml" />
+    <Content Include="Views\Cliente\Editar.cshtml" />
+    <Content Include="Views\Sucursale\Index.cshtml" />
+    <Content Include="Views\Sucursale\Nuevo.cshtml" />
+    <Content Include="Views\Sucursale\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

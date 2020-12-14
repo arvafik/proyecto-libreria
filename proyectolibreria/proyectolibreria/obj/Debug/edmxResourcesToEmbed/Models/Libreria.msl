@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="libreriaModelStoreContainer" CdmEntityContainer="LibreriaDBEntities">
+  <EntityContainerMapping StorageEntityContainer="eurekaModelStoreContainer" CdmEntityContainer="EurekaDBEntities">
     <EntitySetMapping Name="Articulos">
-      <EntityTypeMapping TypeName="libreriaModel.Articulo">
+      <EntityTypeMapping TypeName="eurekaModel.Articulo">
         <MappingFragment StoreEntitySet="Articulos">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -16,7 +16,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Clientes">
-      <EntityTypeMapping TypeName="libreriaModel.Cliente">
+      <EntityTypeMapping TypeName="eurekaModel.Cliente">
         <MappingFragment StoreEntitySet="Clientes">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -25,8 +25,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="FacturaArticuloes">
+      <EntityTypeMapping TypeName="eurekaModel.FacturaArticulo">
+        <MappingFragment StoreEntitySet="FacturaArticulo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDFactura" ColumnName="IDFactura" />
+          <ScalarProperty Name="IDArticulo" ColumnName="IDArticulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas">
+      <EntityTypeMapping TypeName="eurekaModel.Factura">
+        <MappingFragment StoreEntitySet="Facturas">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Sucursales">
-      <EntityTypeMapping TypeName="libreriaModel.Sucursale">
+      <EntityTypeMapping TypeName="eurekaModel.Sucursale">
         <MappingFragment StoreEntitySet="Sucursales">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />

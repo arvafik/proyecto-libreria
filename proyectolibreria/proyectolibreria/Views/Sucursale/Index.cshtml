@@ -1,9 +1,8 @@
-﻿@model List<proyectolibreria.Models.ViewModels.ListClienteViewModel>
+﻿@model List<proyectolibreria.Models.ViewModels.ListSucursaleViewModel>
 @{
-    ViewBag.Title = "Clientes";
+    ViewBag.Title = "Sucursales";
 }
 
-<h2>@ViewBag.Title</h2>
 
 <div class="row">
     <div class="col">
@@ -12,7 +11,7 @@
             <div class="card-header border-0">
                 <h3 class="mb-0">@ViewBag.Title</h3>
                 <div class="col text-right">
-                    <a href="~/Cliente/Nuevo" class="btn btn-sm btn-primary">Agregar cliente</a>
+                    <a href="~/Sucursale/Nuevo" class="btn btn-sm btn-primary">Agregar sucursal</a>
                 </div>
             </div>
             <!-- tabla -->
@@ -23,7 +22,6 @@
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Direccion</th>
-                            <th scope="col">Telefono</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -31,13 +29,12 @@
                         @foreach (var oElemento in Model)
                         {
                             <tr>
-                                <td>@oElemento.Id</td>
+                                <td>@oElemento.ID</td>
                                 <td>@oElemento.Nombre</td>
                                 <td>@oElemento.Direccion</td>
-                                <td>@oElemento.Telefono</td>
                                 <td>
-                                    <a class="btn btn-default" href="~/Cliente/Editar/@oElemento.Id">Editar</a>
-                                    <a class="btn btn-danger" href="~/Cliente/Eliminar/@oElemento.Id">Eliminar</a>
+                                    <a class="btn btn-default" href="~/Sucursale/Editar/@oElemento.ID">Editar</a>
+                                    <a class="btn btn-danger" href="~/Sucursale/Eliminar/@oElemento.ID">Eliminar</a>
                                 </td>
                             </tr>
                         }

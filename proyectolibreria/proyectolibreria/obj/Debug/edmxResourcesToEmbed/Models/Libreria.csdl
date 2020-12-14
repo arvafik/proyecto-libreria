@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="libreriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="eurekaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Articulo">
     <Key>
       <PropertyRef Name="ID" />
@@ -20,7 +20,22 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Direccion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Telefono" Type="Byte" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FacturaArticulo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDFactura" Type="Int32" Nullable="false" />
+    <Property Name="IDArticulo" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDCliente" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Sucursale">
     <Key>
@@ -30,9 +45,11 @@
     <Property Name="Nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
     <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityContainer Name="LibreriaDBEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="EurekaDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Articulos" EntityType="Self.Articulo" />
     <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+    <EntitySet Name="FacturaArticuloes" EntityType="Self.FacturaArticulo" />
+    <EntitySet Name="Facturas" EntityType="Self.Factura" />
     <EntitySet Name="Sucursales" EntityType="Self.Sucursale" />
   </EntityContainer>
 </Schema>
