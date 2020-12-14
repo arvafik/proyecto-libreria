@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace proyectolibreria.Models.ViewModels
 {
+    //No es realmente un viewmodel, esto sigue siendo mvc solo que no supe que otro nombre ponerle
     public class ArticuloViewModel
     {
         public int Id { get; set; }

@@ -16,7 +16,7 @@ namespace proyectolibreria.Controllers
             //Read
             List<ListSucursaleViewModel> lst;
 
-            using (EurekaDBEntities db = new EurekaDBEntities())
+            using (EurekaLibreriaDBEntities db = new EurekaLibreriaDBEntities())
             {
                 lst = (from x in db.Sucursales
                        select new ListSucursaleViewModel
@@ -41,7 +41,7 @@ namespace proyectolibreria.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    using (EurekaDBEntities db = new EurekaDBEntities())
+                    using (EurekaLibreriaDBEntities db = new EurekaLibreriaDBEntities())
                     {
                         var xSucursale = new Sucursale();
                         xSucursale.Nombre = model.Nombre;
@@ -64,7 +64,7 @@ namespace proyectolibreria.Controllers
         public ActionResult Editar(int Id)
         {
             SucursaleViewModel model = new SucursaleViewModel();
-            using (EurekaDBEntities db = new EurekaDBEntities())
+            using (EurekaLibreriaDBEntities db = new EurekaLibreriaDBEntities())
             {
                 var xSucursale = db.Sucursales.Find(Id);
                 model.Nombre = xSucursale.Nombre;
@@ -81,7 +81,7 @@ namespace proyectolibreria.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    using (EurekaDBEntities db = new EurekaDBEntities())
+                    using (EurekaLibreriaDBEntities db = new EurekaLibreriaDBEntities())
                     {
                         var xSucursale = db.Sucursales.Find(model.ID);
                         xSucursale.Nombre = model.Nombre;
@@ -104,7 +104,7 @@ namespace proyectolibreria.Controllers
         [HttpGet]
         public ActionResult Eliminar(int Id)
         {
-            using (EurekaDBEntities db = new EurekaDBEntities())
+            using (EurekaLibreriaDBEntities db = new EurekaLibreriaDBEntities())
             {
 
                 var xSucursale = db.Sucursales.Find(Id);

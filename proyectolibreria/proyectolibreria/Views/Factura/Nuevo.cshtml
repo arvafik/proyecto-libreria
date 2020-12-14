@@ -1,0 +1,27 @@
+﻿@model proyectolibreria.Models.ViewModels.FacturaViewModel
+@{
+    ViewBag.Title = "Nueva factura";
+}
+
+
+@using (Html.BeginForm("Nuevo", "Factura", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <!-- Card -->
+                <div class="card-header border-0">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-md-12">
+                    @Html.LabelFor(d => d.Total)
+                    @Html.TextBoxFor(d => d.Total, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.Total, null, new { @class = "red" })
+
+                    <input class="btn btn-primary" style="margin-top:1em;" value="Guardar" type="submit" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+}

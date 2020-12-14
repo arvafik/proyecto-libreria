@@ -15,6 +15,7 @@ namespace proyectolibreria.Models
     public partial class Factura
     {
         public int ID { get; set; }
-        public int IDCliente { get; set; }
+        public System.DateTime Fecha { get; set; }
+        public decimal Total { get; set; }
     }
 }

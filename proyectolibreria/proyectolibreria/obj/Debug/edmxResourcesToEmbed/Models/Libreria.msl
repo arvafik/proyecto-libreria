@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="eurekaModelStoreContainer" CdmEntityContainer="EurekaDBEntities">
+  <EntityContainerMapping StorageEntityContainer="eurekaModelStoreContainer" CdmEntityContainer="EurekaLibreriaDBEntities">
     <EntitySetMapping Name="Articulos">
       <EntityTypeMapping TypeName="eurekaModel.Articulo">
         <MappingFragment StoreEntitySet="Articulos">
@@ -38,7 +38,8 @@
       <EntityTypeMapping TypeName="eurekaModel.Factura">
         <MappingFragment StoreEntitySet="Facturas">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

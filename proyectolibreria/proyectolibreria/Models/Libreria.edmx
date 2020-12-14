@@ -40,7 +40,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IDCliente" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Total" Type="money" Nullable="false" />
         </EntityType>
         <EntityType Name="Sucursales">
           <Key>
@@ -97,7 +98,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDCliente" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
         </EntityType>
         <EntityType Name="Sucursale">
           <Key>
@@ -107,7 +109,7 @@
           <Property Name="Nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="EurekaDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EurekaLibreriaDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Articulos" EntityType="Self.Articulo" />
           <EntitySet Name="Clientes" EntityType="Self.Cliente" />
           <EntitySet Name="FacturaArticuloes" EntityType="Self.FacturaArticulo" />
@@ -119,7 +121,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="eurekaModelStoreContainer" CdmEntityContainer="EurekaDBEntities">
+        <EntityContainerMapping StorageEntityContainer="eurekaModelStoreContainer" CdmEntityContainer="EurekaLibreriaDBEntities">
           <EntitySetMapping Name="Articulos">
             <EntityTypeMapping TypeName="eurekaModel.Articulo">
               <MappingFragment StoreEntitySet="Articulos">
@@ -157,7 +159,8 @@
             <EntityTypeMapping TypeName="eurekaModel.Factura">
               <MappingFragment StoreEntitySet="Facturas">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

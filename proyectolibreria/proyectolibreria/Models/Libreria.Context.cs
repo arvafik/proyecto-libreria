@@ -13,10 +13,10 @@ namespace proyectolibreria.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EurekaDBEntities : DbContext
+    public partial class EurekaLibreriaDBEntities : DbContext
     {
-        public EurekaDBEntities()
-            : base("name=EurekaDBEntities")
+        public EurekaLibreriaDBEntities()
+            : base("name=EurekaLibreriaDBEntities")
         {
         }
     

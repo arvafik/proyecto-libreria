@@ -15,7 +15,7 @@ namespace proyectolibreria.Controllers
         {
             //Read
             List<ListClienteViewModel> lst;
-            using (EurekaDBEntities db = new EurekaDBEntities())
+            using (EurekaLibreriaDBEntities db = new EurekaLibreriaDBEntities())
             {
                 lst = (from x in db.Clientes
                        select new ListClienteViewModel
@@ -41,7 +41,7 @@ namespace proyectolibreria.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    using (EurekaDBEntities db = new EurekaDBEntities())
+                    using (EurekaLibreriaDBEntities db = new EurekaLibreriaDBEntities())
                     {
                         var xCliente = new Cliente();
                         xCliente.Nombre = model.Nombre;
@@ -65,7 +65,7 @@ namespace proyectolibreria.Controllers
         public ActionResult Editar(int Id)
         {
             ClienteViewModel model = new ClienteViewModel();
-            using (EurekaDBEntities db = new EurekaDBEntities())
+            using (EurekaLibreriaDBEntities db = new EurekaLibreriaDBEntities())
             {
                 var xCliente = db.Clientes.Find(Id);
 
@@ -83,7 +83,7 @@ namespace proyectolibreria.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    using (EurekaDBEntities db = new EurekaDBEntities())
+                    using (EurekaLibreriaDBEntities db = new EurekaLibreriaDBEntities())
                     {
                         var xCliente = db.Clientes.Find(model.Id);
                         xCliente.Nombre = model.Nombre;
@@ -107,7 +107,7 @@ namespace proyectolibreria.Controllers
         [HttpGet]
         public ActionResult Eliminar(int Id)
         {
-            using (EurekaDBEntities db = new EurekaDBEntities())
+            using (EurekaLibreriaDBEntities db = new EurekaLibreriaDBEntities())
             {
 
                 var xCliente = db.Clientes.Find(Id);

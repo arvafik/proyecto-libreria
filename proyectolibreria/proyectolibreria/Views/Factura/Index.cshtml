@@ -1,0 +1,46 @@
+﻿@model List<proyectolibreria.Models.ViewModels.ListFacturaViewModel>
+@{
+    ViewBag.Title = "Facturas";
+}
+
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <!-- Card -->
+            <div class="card-header border-0">
+                <h3 class="mb-0">@ViewBag.Title</h3>
+                <div class="col text-right">
+                    <a href="~/Factura/Nuevo" class="btn btn-sm btn-primary">Agregar factura</a>
+                </div>
+            </div>
+            <!-- tabla -->
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Total</th>
+                            @*<th scope="col"></th>*@
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        @foreach (var oElemento in Model)
+                        {
+                            <tr>
+                                <td>@oElemento.ID</td>
+                                <td>@oElemento.Fecha</td>
+                                <td>@oElemento.Total</td>
+                                @*<td>
+                                    <a class="btn btn-danger" href="~/Factura/Detalle/@oElemento.ID">Ver factura</a>
+                                </td>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
